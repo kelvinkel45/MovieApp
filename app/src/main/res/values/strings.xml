@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Movie App</string>
+    <string name="content_description">Content Description</string>
+    <string name="overview">Overview</string>
+    <string name="favorite">Favorite</string>
+    <string name="search">Search</string>
+    <string name="search_movie">Search your movie</string>
+    <string name="text_movie_added">Your movie is added to favorite</string>
+    <string name="text_movie_deleted">Your movie is deleted to favorite</string>
+    <string name="title_favorites">Module Title</string>
+</resources>

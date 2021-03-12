@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:background="@color/colorPrimary"
+    tools:context=".presentation.detail.DetailMovieActivity">
+    
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appbar"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:fitsSystemWindows="true"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fitsSystemWindows="true"
+            app:contentScrim="?attr/colorPrimary"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed"
+            app:toolbarId="@+id/toolbar">
+
+            <ImageView
+                android:id="@+id/img_detail_banner"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:contentDescription="@string/content_description" />
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:layout_collapseMode="pin"
+                app:popupTheme="@style/AppTheme.PopupOverlay" />
+
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/activity_margin_vertical"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/item_margin">
+
+            <com.github.florent37.shapeofview.shapes.RoundRectView
+                android:id="@+id/rv_detail_poster"
+                android:layout_width="100dp"
+                android:layout_height="150dp"
+                android:layout_marginStart="@dimen/item_margin"
+                android:layout_marginTop="@dimen/item_margin"
+                android:elevation="4dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:shape_roundRect_borderColor="@color/colorTextSecondary"
+                app:shape_roundRect_borderWidth="1dp"
+                app:shape_roundRect_bottomLeftRadius="8dp"
+                app:shape_roundRect_bottomRightRadius="8dp"
+                app:shape_roundRect_topLeftRadius="8dp"
+                app:shape_roundRect_topRightRadius="8dp">
+
+                <ImageView
+                    android:id="@+id/img_detail_poster"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    tools:background="@color/colorTextSecondary"
+                    android:contentDescription="@string/content_description"/>
+
+            </com.github.florent37.shapeofview.shapes.RoundRectView>
+
+
+            <RatingBar
+                android:id="@+id/rb_detail_rating"
+                style="?android:attr/ratingBarStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_corner_secondary"
+                android:layout_marginStart="@dimen/item_margin"
+                android:layout_marginTop="@dimen/item_margin"
+
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/rv_detail_poster"/>
+
+            <TextView
+                android:id="@+id/tv_detail_rating"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="4dp"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="@dimen/item_margin"
+                tools:text="7.0"
+                android:textColor="@color/colorTextSecondary"
+                android:textSize="12sp"
+                app:layout_constraintStart_toEndOf="@id/rb_detail_rating"
+                app:layout_constraintTop_toBottomOf="@id/rv_detail_poster"/>
+
+
+            <TextView
+                android:id="@+id/tv_overview"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_corner_secondary"
+                android:layout_marginEnd="@dimen/activity_margin_horizontal"
+                android:layout_marginStart="@dimen/activity_margin_horizontal"
+                android:layout_marginTop="@dimen/activity_margin_vertical"
+                android:paddingEnd="@dimen/item_margin"
+                android:paddingStart="@dimen/item_margin"
+                android:text="@string/overview"
+                android:textColor="@color/colorTextPrimary"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/rb_detail_rating" />
+
+            <TextView
+                android:id="@+id/tv_overview_detail"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                tools:text="@tools:sample/lorem/random"
+                android:textColor="@color/colorTextSecondary"
+                android:layout_marginEnd="@dimen/activity_margin_horizontal"
+                android:layout_marginStart="@dimen/activity_margin_horizontal"
+                android:layout_marginTop="@dimen/item_margin"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_overview"/>
+
+
+            <ProgressBar
+                android:id="@+id/progress_bar"
+                style="?android:attr/progressBarStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_favorite"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/item_margin"
+        android:contentDescription="@string/content_description"
+        app:layout_anchor="@id/appbar"
+        app:layout_anchorGravity="bottom|end"
+        app:srcCompat="@drawable/ic_favorite_border_white" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
